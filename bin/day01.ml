@@ -1,7 +1,12 @@
-open Stdio
 open Base
+open Utils
 
-let input = "resources/day01.txt" |> In_channel.read_all |> String.to_list
+let input =
+  1
+  |> Utils.get_resource
+  |> List.hd
+  |> Option.value ~default:""
+  |> String.to_list
 
 let char_to_number c =
   match c with
