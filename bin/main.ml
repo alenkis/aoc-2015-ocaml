@@ -13,6 +13,8 @@ let combined_results =
   ^ print_solution_for_day 2
       (Int.to_string Day02.wrapping_paper)
       (Int.to_string Day02.ribbon)
-  ^ print_solution_for_day 3 (Int.to_string Day03.result) "..."
+  ^ print_solution_for_day 3
+      (Int.to_string Day03.result1)
+      (Int.to_string Day03.result2)
 
 let () = print_endline combined_results

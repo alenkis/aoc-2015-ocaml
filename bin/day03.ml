@@ -24,17 +24,25 @@ let step acc { x = next_x; y = next_y } =
   let { x = last_x; y = last_y } = acc |> List.last |> Option.value_exn in
   List.append acc [ { x = last_x + next_x; y = last_y + next_y } ]
 
-let directions =
+let step_with_2 acc { x = next_x; y = next_y } =
+  match acc |> List.rev with
+  | _ :: { x = second_to_last_x; y = second_to_last_y } :: _ ->
+      acc @ [ { x = second_to_last_x + next_x; y = second_to_last_y + next_y } ]
+  | _ -> acc
+
+let get_result init step_fn =
   3
   |> Utils.get_resource
   |> List.hd
   |> Option.value ~default:""
   |> String.to_list
   |> List.map ~f:parse_direction
-
-(* Part 1 answer *)
-let result =
-  directions
-  |> List.fold ~init:[ { x = 0; y = 0 } ] ~f:step
+  |> List.fold ~init ~f:step_fn
   |> remove_duplicates
   |> List.length
+
+(* Part 1 answer *)
+let result1 = get_result [ { x = 0; y = 0 } ] step
+
+(* Part 2 answer *)
+let result2 = get_result [ { x = 0; y = 0 }; { x = 0; y = 0 } ] step_with_2
