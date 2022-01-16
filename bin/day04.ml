@@ -16,8 +16,12 @@ let find_hash_for_secret secret zeros =
   let rec find_hash' n =
     if n |> get_hex_for_n secret |> has_n_leading_zeros zeros then n
     else find_hash' (n + 1)
+    (* There doesn't seem to be a better solution other than brute forcing and incrementing by one... *)
   in
   find_hash' 1
 
+(* Part 1 answer *)
 let result1 = find_hash_for_secret input_hash 5
+
+(* Part 2 answer *)
 let result2 = find_hash_for_secret input_hash 6
