@@ -3,6 +3,7 @@ open Stdio
 
 module type Utils = sig
   val get_input_for_day : int -> string list
+  val repeat_string : string -> int -> string
 end
 
 module Utils : Utils = struct
@@ -17,4 +18,11 @@ module Utils : Utils = struct
     |> stringify_day
     |> Printf.sprintf "resources/day%s.txt"
     |> In_channel.read_lines
+
+  let repeat_string s n =
+    let rec f l = function
+      | 0 -> l
+      | n -> f (String.rev s ^ l) (n - 1)
+    in
+    String.rev (f "" n)
 end
