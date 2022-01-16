@@ -32,7 +32,7 @@ let sum_dimensions acc dimension =
 (* Part 1 answer *)
 let wrapping_paper =
   2
-  |> Utils.get_resource
+  |> Utils.get_input_for_day
   |> List.map ~f:split_dimensions
   |> List.fold ~init:0 ~f:sum_dimensions
 
@@ -45,6 +45,6 @@ let sum_ribbon acc dimension = acc + calculate_ribbon dimension
 (* Part 1 answer *)
 let ribbon =
   2
-  |> Utils.get_resource
+  |> Utils.get_input_for_day
   |> List.map ~f:split_dimensions
   |> List.fold ~init:0 ~f:sum_ribbon

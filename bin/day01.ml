@@ -3,7 +3,7 @@ open Utils
 
 let input =
   1
-  |> Utils.get_resource
+  |> Utils.get_input_for_day
   |> List.hd
   |> Option.value ~default:""
   |> String.to_list

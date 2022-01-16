@@ -32,7 +32,7 @@ let step_with_2 acc { x = next_x; y = next_y } =
 
 let get_result init step_fn =
   3
-  |> Utils.get_resource
+  |> Utils.get_input_for_day
   |> List.hd
   |> Option.value ~default:""
   |> String.to_list
