@@ -4,9 +4,14 @@ let print_solution_for_day n s1 s2 =
   ^ "\n"
   ^ Printf.sprintf "Day %d, Part 2: " n
   ^ s2
+  ^ "\n"
 
-let () =
-  print_endline
-    (print_solution_for_day 1
-       (Day01.input |> Day01.find_final_floor |> Int.to_string)
-       (Day01.input |> Day01.find_first_negative_floor |> Int.to_string))
+let combined_results =
+  print_solution_for_day 1
+    (Day01.input |> Day01.find_final_floor |> Int.to_string)
+    (Day01.input |> Day01.find_first_negative_floor |> Int.to_string)
+  ^ print_solution_for_day 2
+      (Int.to_string Day02.wrapping_paper)
+      (Int.to_string Day02.ribbon)
+
+let () = print_endline combined_results
