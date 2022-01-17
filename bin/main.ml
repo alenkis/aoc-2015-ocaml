@@ -16,8 +16,11 @@ let combined_results =
   ^ print_solution_for_day 3
       (Int.to_string Day03.result1)
       (Int.to_string Day03.result2)
-  ^ print_solution_for_day 4
-      (Int.to_string Day04.result1)
-      (Int.to_string Day04.result2)
+  ^ print_solution_for_day 4 "N/A (brute force)" "N/A (brute force)"
+  (* (Int.to_string Day04.result1) *)
+  (* (Int.to_string Day04.result2) *)
+  ^ print_solution_for_day 5
+      (Int.to_string Day05.result1)
+      (Int.to_string Day05.result2)
 
 let () = print_endline combined_results
